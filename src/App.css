@@ -1,0 +1,99 @@
+.App {
+  text-align: left;
+  background-color: #cfb97b;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #cfb97b;
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #cfb97b;
+  color: rgb(11, 11, 68);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  font-size: 36px;
+  font-family:'Recursive', sans-serif;
+} 
+
+.All{
+  background: #cfb97b;
+  width: 100%;
+  height: 100%;
+}
+
+.body-app{
+  background-color: #cfb97b;
+  font-size: 24px;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat';
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.uploadSquare{
+  background-color: rgb(226, 224, 224);
+  border:5px dashed rgb(218, 175, 96);
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 450px;
+  margin-left: 35%;
+  
+}
+
+.uploadSquare2{
+
+  height: 70%;
+  padding: 0;
+}
+
+.input_{
+  display: none;
+}
+
+.chooseFile{
+  /* margin-top: 50%; */
+  background-color :rgb(226, 177, 85);
+  border-radius: 5px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+
+.Nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
