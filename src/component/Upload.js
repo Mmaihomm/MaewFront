@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Process from './Process'
+import axios from 'axios';
 
 
 function Upload(){
@@ -8,33 +9,42 @@ function Upload(){
     
 
     const handleChange = e => {
+        console.log(e.target.files[0].name)
         if (e.target.files.length) {
             setImage({
             preview: URL.createObjectURL(e.target.files[0]),
             raw: e.target.files[0]
             });
+
         }
         setProcess(!process)
+        console.log('image change', image)
     };
 
-    const handleUpload = async e => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("image", image.raw);
     
-        await fetch("YOUR_URL", {
-          method: "POST",
-          headers: {
-            "Content-Type": "multipart/form-data"
-          },
-          body: formData
+
+    const handleUpload = async e => {
+        // e.preventDefault();
+        let formData = new FormData();
+        formData.append('image', image.raw);
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:5000/cat',
+            data: formData,
+            headers: {'Content-Type': 'multipart/form-data'}
+            })
+            .then(function (response) {
+                console.log('res',response)
+            })
+            .catch(function (response) {
+                console.log(response)
         });
       };
     
     return(
     <div>
        
-        <div className= "uploadSquare">
+        <div className= "uploadSquare" action="" method="post">
                 <p className = "body-app"> Upload Your Cat Image Here</p>
                 { image.preview && <img src={image.preview} className= "uploadSquare2" />}
 
@@ -53,10 +63,7 @@ function Upload(){
                             
                             </div>)
             }
-        </div>
-
-        
-        
+        </div>  
         <Process></Process>
         
     </div>
