@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+import {MemoryRouter, Switch, Route} from 'react-router-dom'
 import './App.css';
-import Nav from './component/Nav';
-import Upload from './component/Upload';
-
+import Main from './component/Main'
+import Output from './component/Output'
 
 
 function App() {
-  return (
-    <div>
-      <Nav></Nav>
-      <Upload></Upload>
-    </div>
-  );
+    return (
+        <MemoryRouter>
+            <Switch>
+                <Route exact path="/" component={Main}/>
+                <Route path="/result" component={Output}/>
+            </Switch>
+        </MemoryRouter>
+    );
 }
 
 export default App;
