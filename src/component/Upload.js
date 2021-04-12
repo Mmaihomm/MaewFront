@@ -1,11 +1,10 @@
 import React, {useState} from "react";
-import { useHistory } from 'react-router-dom';
-import Process from './Process'
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 
 function Upload() {
-    const [image, setImage] = useState({preview: "def.png", raw: ""});
+    const [image, setImage] = useState({preview: null, raw: ""});
     const [process, setProcess] = useState(true);
     const history = useHistory();
 
@@ -47,35 +46,37 @@ function Upload() {
         <div className={"UploadArea"}>
             <span className="body-app">Upload Your Cat Image Here</span>
             <div className="uploadSquare" action="" method="post">
-                {image.preview && <img src={image.preview} className="uploadSquare2"/>}
-
-
+                {
+                    image.preview?(
+                        <img alt={"preview image"} src={image.preview} className="uploadSquare2"/>
+                    ):(<ChooseImageDialog/>)
+                }
                 {process ?
                     (
                         <div className={"buttonLabel"}>
-
                             <input id="put" type="file" className="input_" accept="image/jpeg,png"
                                    onChange={handleChange}/>
                             <label htmlFor="put" style={{cursor: "pointer"}}>
-                                <p className="chooseFile">CHOOSE FILE</p>
+                                <div className={"Button"}>CHOOSE FILE</div>
                             </label>
-                        </div>) : (<div className="body-app">
-
-                        <button style={{
-                            width: "100px",
-                            height: "20px",
-                            padding: "0",
-                            backgroundColor: "rgb(226, 177, 85)",
-                            borderRadius: "5px"
-                        }} onClick={handleUpload}>Process
-                        </button>
-
-                    </div>)
+                        </div>
+                    ) : (
+                        <div className="ProcessButton" onClick={handleUpload}>PROCESS</div>
+                    )
                 }
             </div>
-            {/*<Process></Process>*/}
         </div>
     )
 }
+
+
+function ChooseImageDialog(){
+    return(
+        <div>
+            please choose image
+        </div>
+    );
+}
+
 
 export default Upload;
