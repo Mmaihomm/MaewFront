@@ -1,156 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
+
+
 .App {
-  text-align: left;
-  background-color: #cfb97b;
-  width: 100%;
-  height: 100%;
+    text-align: left;
+    background-color: #cfb97b;
+    width: 100%;
+    height: 100%;
 }
 
 body {
-  background-color: #cfb97b;
-  width: 100%;
-  height: 100%;
+    background-color: #cfb97b;
+    width: 100%;
+    height: 100%;
 }
 
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #cfb97b;
-  color: rgb(11, 11, 68);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  font-size: 36px;
-  font-family:'Recursive', sans-serif;
-} 
-
-.All{
-  background: #cfb97b;
-  width: 100%;
-  height: 100%;
+    background-color: #cfb97b;
+    color: rgb(11, 11, 68);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+    font-family: 'Recursive', sans-serif;
 }
 
-.body-app{
-  font-size: 24px;
-  text-align: center;
-  font-family: 'Montserrat';
-  margin-top: 120px;
+.All {
+    background: #cfb97b;
+    width: 100%;
+    height: 100%;
+}
+
+.body-app {
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Montserrat';
+    margin-top: 120px;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
-.uploadSquare{
-  margin: 20px;
-  background-color: rgb(226, 224, 224);
-  border:4px dashed rgb(218, 175, 96);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 700px;
-  width: 80%;
-  /*height: 450px;*/
-  align-self: center;
+.uploadSquare {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(226, 224, 224);
+    border: 4px dashed rgb(218, 175, 96);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 700px;
+    min-width: 300px;
+    min-height: 300px;
+    width: 80vw;
+    height: 50vh;
+    align-self: center;
 }
 
-.uploadSquare2{
-  height: 70%;
-  padding: 0;
+.uploadSquare2 {
+    width: 70%;
+    height: 80%;
+    padding: 0;
+    object-fit: contain;
 }
 
-.input_{
-  display: none;
+.input_ {
+    display: none;
 }
 
-.chooseFile{
-  /* margin-top: 50%; */
-  background-color :rgb(226, 177, 85);
-  border-radius: 100px;
-  width: 150px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Montserrat';
-  font-weight: bold;
-
+.Button, .ProcessButton, .backHome {
+    background-color: rgb(226, 177, 85);
+    border-radius: 100px;
+    padding: 10px 30px 10px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-.Nav{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.ProcessButton {
+    background-color: rgb(87, 174, 6);
+    color: white;
 }
 
-.TopBar{
-  position: absolute;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-family: 'Montserrat';
+.Nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.TopBar .Logo{
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 30px;
-  font-weight: bold;
+.TopBar {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Montserrat';
 }
 
-.GroupMembers{
-  display: flex;
-  flex-direction: column;
-  margin-top: -220px;
-  margin-right: 20px;
-  transition: margin-top 0.5s ease-in-out;
-
+.TopBar .Logo {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-.GroupMembers:hover{
-  margin-top: 0;
+.GroupMembers {
+    display: flex;
+    flex-direction: column;
+    margin-top: -220px;
+    margin-right: 20px;
+    transition: margin-top 0.5s ease-in-out;
 }
 
-.GroupMembers .MembersPlate{
-  font-size: 20px;
-  color: white;
-  padding: 20px;
-  width: 300px;
-  border-radius: 0px 0px 20px 20px;
-  background-color: #786349;
-  z-index: 2;
+.GroupMembers:hover {
+    margin-top: 0;
 }
 
-.GroupMembers .CatPaw{
-  flex-direction: column;
-  align-self: flex-end;
-  transform: rotate(180deg);
-  height: 130px;
-  width: auto;
-  margin-top: -20px;
-  z-index: 1;
+.GroupMembers .MembersPlate {
+    font-family: 'Prompt', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 0px 0px 20px 20px;
+    background-color: #786349;
+    z-index: 2;
 }
 
-.UploadArea{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100vw;
+.GroupMembers .CatPaw {
+    flex-direction: column;
+    align-self: flex-end;
+    transform: rotate(180deg);
+    height: 130px;
+    width: auto;
+    margin-top: -20px;
+    z-index: 1;
 }
 
+.UploadArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    font-family: 'Montserrat';
+}
+
+.ChooseImageDialog {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+.ChooseImageDialog img {
+    fill: white;
+    height: 150px;
+    margin-left: 13px;
+    padding: 0;
+}
+
+.ChooseImageDialog span {
+    margin-top: 20px;
+}
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* --------------result--------------------- */
+.resultGroup{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 10vh;
+    height: 80vh;
+    width: 100vw;
+}
+
+
+.resultArea {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 80vw;
+    padding: 20px;
+}
+
+.boxImg {
+    border-radius: 10px;
+    height: auto;
+    width: 80%;
+    margin-right: 20px;
+    min-width: 100px;
+    object-fit: cover;
+}
+
+.resultText{
+    /*background-color: aqua;*/
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxTextResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* width: 500px;*/
+    /* height: 100px; */
+    /* position: relative; */
+}
+
+.boxTextHistory {
+    /*background-color: rgb(255, 255, 255);*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.didYouKnow {
+    border-radius: 100px;
+    background-color: rgb(250, 206, 126);
+    padding: 10px 30px 10px 30px;
+    height: 30px;
+    /*color: white;*/
+    font-family: "Montserrat";
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.history {
+    background-color: rgb(250, 206, 126);
+    z-index: -1;
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.backHome {
+    /* margin-top: 50%; */
 }

@@ -1,9 +1,12 @@
 import React, { useState } from "react"
+import Result from './Result'
+import TopBar from './TopBar'
 
 function Output(){
     return(
         <div>
-            OUTPUT
+            <TopBar/>
+            <Result/>
         </div>
     )
 }
