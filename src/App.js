@@ -7,6 +7,7 @@ import Output from './component/Output'
 
 function App() {
     return (
+        // <Output/>
         <MemoryRouter>
             <Switch>
                 <Route exact path="/" component={Main}/>
