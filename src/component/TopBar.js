@@ -23,6 +23,7 @@ const GroupMembers = ({...props}) => {
     return (
         <div className={"GroupMembers"}>
             <span className={"MembersPlate"}>
+                <b>กลุ่มที่ 1</b><br/>
                 60010033 กฤษณา ชินสร้อย<br/>
                 60010271 ฑิฆัมพร โอศิริ<br/>
                 60010353 ต้นตระกูล อินชาญ<br/>

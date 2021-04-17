@@ -50,7 +50,7 @@ function Result() {
                         >
                             Your cat is
                             <br/>
-                            <span style={{fontSize: "80px"}}>
+                            <span style={{fontSize: "7vw", fontWeight: "500"}}>
 								{output}
 							</span>
                         </p>

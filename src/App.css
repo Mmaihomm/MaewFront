@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 .App {
     text-align: left;
@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 36px;
-    font-family: 'Recursive', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .All {
@@ -40,7 +40,8 @@ body {
 .body-app {
     font-size: 24px;
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     margin-top: 120px;
 }
 
@@ -77,18 +78,26 @@ body {
     display: none;
 }
 
-.Button, .ProcessButton, .backHome {
+.Button, .ProcessButton, .CancelButton, .backHome {
     background-color: rgb(226, 177, 85);
     border-radius: 100px;
     padding: 10px 30px 10px 30px;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
+    box-shadow: 0 0 5px grey;
 }
 
 .ProcessButton {
     background-color: rgb(87, 174, 6);
     color: white;
+}
+
+.CancelButton{
+    background-color: #c6c6c6;
+    color: #353535;
+    margin-right: 20px;
 }
 
 .Nav {
@@ -98,15 +107,16 @@ body {
 }
 
 .TopBar {
-    position: absolute;
+    top: 0;
     width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .TopBar .Logo {
+    width: 500px;
     margin-top: 20px;
     margin-left: 20px;
     font-size: 30px;
@@ -114,10 +124,11 @@ body {
 }
 
 .GroupMembers {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    margin-top: -220px;
-    margin-right: 20px;
+    margin-top: -240px;
+    right: 20px;
     transition: margin-top 0.5s ease-in-out;
 }
 
@@ -132,7 +143,7 @@ body {
     color: white;
     padding: 20px;
     width: 300px;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0 0 20px 20px;
     background-color: #786349;
     z-index: 2;
 }
@@ -152,7 +163,7 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100vw;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ChooseImageDialog {
@@ -160,17 +171,25 @@ body {
     display: flex;
     flex-direction: column;
     height: 80%;
+    color: #757575;
 }
 
 .ChooseImageDialog img {
     fill: white;
     height: 150px;
     margin-left: 13px;
+    filter: opacity(0.8);
     padding: 0;
 }
 
 .ChooseImageDialog span {
     margin-top: 20px;
+}
+.ActionButtonGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes App-logo-spin {
@@ -190,9 +209,10 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    bottom: 10vh;
+    top: 100px;
     height: 80vh;
     width: 100vw;
+    min-height: 500px;
 }
 
 
@@ -247,12 +267,13 @@ body {
     padding: 10px 30px 10px 30px;
     height: 30px;
     /*color: white;*/
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 1em;
 }
 
 .history {

@@ -82,7 +82,13 @@ function Upload() {
                 }
                 {process ?
                     (
-                        <div className="ProcessButton" onClick={handleUpload}>PROCESS</div>
+                        <div className={"ActionButtonGroup"}>
+                            <div className="CancelButton" onClick={() => {
+                                setProcess(false);
+                                image.preview = null;
+                            }}>CANCEL</div>
+                            <div className="ProcessButton" onClick={handleUpload}>PROCESS</div>
+                        </div>
                     ) : (
                         <div className={"buttonLabel"}>
                             <input id="put" type="file" className="input_" accept="image/jpeg,png"
