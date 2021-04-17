@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,7 +6,9 @@ import axios from 'axios';
 function Upload() {
     const [image, setImage] = useState({preview: null, raw: ""});
     const [process, setProcess] = useState(false);
+    const [getMessage, setGetMessage] = useState({})
     const history = useHistory();
+
 
 
     const handleChange = e => {
@@ -23,21 +25,21 @@ function Upload() {
 
 
     const handleUpload = async e => {
-        // e.preventDefault();
-        // let formData = new FormData();
-        // formData.append('image', image.raw);
-        // await axios({
-        //     method: 'POST',
-        //     url: 'http://localhost:5000/cat',
-        //     data: formData,
-        //     headers: {'Content-Type': 'multipart/form-data'}
-        //     })
-        //     .then(function (response) {
-        //         console.log('res',response)
-        //     })
-        //     .catch(function (response) {
-        //         console.log(response)
-        // });
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append('image', image.raw);
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:5000/cat',
+            data: formData,
+            headers: {'Content-Type': 'multipart/form-data'}
+            })
+            .then(function (response) {
+                console.log('res',response.data)
+            })
+            .catch(function (response) {
+                console.log(response)
+        });
         history.push("/result");
     };
 
@@ -91,7 +93,9 @@ function Upload() {
                         </div>
                     )
                 }
-            </div>
+                
+                </div>
+            
         </div>
     )
 }
