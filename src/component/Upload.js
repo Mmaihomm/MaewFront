@@ -1,15 +1,16 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {useHistory} from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
 import axios from 'axios';
+import css from "css";
 
 
 function Upload() {
     const [image, setImage] = useState({preview: null, raw: ""});
     const [process, setProcess] = useState(false);
-    const [getMessage, setGetMessage] = useState({})
+    const [getMessage, setGetMessage] = useState({});
+    const [loading, setLoading] = useState(false);
     const history = useHistory();
-
-
 
     const handleChange = e => {
         console.log(e.target.files[0].name)
@@ -28,6 +29,9 @@ function Upload() {
         e.preventDefault();
         let formData = new FormData();
         formData.append('image', image.raw);
+        console.log("HandleUpload");
+        var r = "";
+        setLoading(true);
         await axios({
             method: 'POST',
             url: 'http://localhost:5000/cat',
@@ -36,11 +40,15 @@ function Upload() {
             })
             .then(function (response) {
                 console.log('res',response.data)
+                r = response.data.predictClass;
             })
             .catch(function (response) {
                 console.log(response)
         });
-        history.push("/result");
+        history.push({
+        	pathname: "/result",
+        	state: { img: image.raw, rep: r },
+        });
     };
 
     const dragOver = (e) => {
@@ -86,8 +94,17 @@ function Upload() {
                             <div className="CancelButton" onClick={() => {
                                 setProcess(false);
                                 image.preview = null;
-                            }}>CANCEL</div>
-                            <div className="ProcessButton" onClick={handleUpload}>PROCESS</div>
+                            }}>CANCEL
+                            </div>
+                            {
+                                <div className="ProcessButton" onClick={loading?null:(handleUpload)}>
+                                    {loading?(
+                                    <ClipLoader color={"#ffffff"} loading={loading} size={"18px"}/>
+                                    ):(
+                                    "PROCESS"
+                                    )}
+                                </div>
+                            }
                         </div>
                     ) : (
                         <div className={"buttonLabel"}>
@@ -99,9 +116,9 @@ function Upload() {
                         </div>
                     )
                 }
-                
-                </div>
-            
+
+            </div>
+
         </div>
     )
 }

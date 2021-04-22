@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 
 function Result() {
+    const location = useLocation();
     const [image, setImage] = useState({preview: "CatResult.jpg"});
     const [output, setOut] = useState("Persian");
     const [know, setKnow] = useState({
@@ -13,17 +14,20 @@ function Result() {
         history.push("/");
     };
     useEffect(() => {
-        if (output === "Maine coon") {
+        setOut(location.state.rep);
+		setImage({ preview: URL.createObjectURL(location.state.img) });
+
+        if (output === "Manx") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
             });
-        } else if (output === "Persian") {
+        } else if (output === "Ragdoll") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
             });
-        } else if (output === "Russian blue") {
+        } else if (output === "Siamese") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
