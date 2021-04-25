@@ -1,0 +1,4 @@
+[build]
+    CI="npm run build"
+    commard="npm run build"
+    publish="build"
