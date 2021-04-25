@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {useHistory, useLocation} from "react-router-dom";
+import DidYouKnow from "../DidYouKnow";
 
 function Result() {
     const location = useLocation();
-    const [image, setImage] = useState({preview: "CatResult.jpg"});
-    const [output, setOut] = useState("Persian");
+    const [image, setImage] = useState({preview: null});
+    const [output, setOut] = useState("");
     const [know, setKnow] = useState({
-        preview: "Persiandsgjerkfldjgy",
+        preview: "",
     });
     const history = useHistory();
 
@@ -17,20 +18,17 @@ function Result() {
         const resultStr = location.state.rep;
         setOut(resultStr);
 		setImage({ preview: URL.createObjectURL(location.state.img) });
-        if (resultStr === "Manx") {
+        if (resultStr === "Snowshoe") {
             setKnow({
-                preview:
-                    "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
+                preview: DidYouKnow.Snowshoe
             });
         } else if (resultStr === "Ragdoll") {
             setKnow({
-                preview:
-                    "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
+                preview: DidYouKnow.Ragdoll
             });
         } else if (resultStr === "Siamese") {
             setKnow({
-                preview:
-                    "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
+                preview: DidYouKnow.Siamese
             });
         }
     }, []);

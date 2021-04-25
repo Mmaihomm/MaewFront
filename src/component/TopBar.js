@@ -12,9 +12,11 @@ function TopBar() {
 
 const Logo = () => {
     return (
-        // <img className="Logo" src="Group 3.png"/>
         <span className={"Logo"}>
-            Meow Kin Pla
+            <img className="LogoPic" src="cat-logo.svg"/>
+            <span className={"LogoText"}>
+                Meow Kin Pla
+            </span>
         </span>
     )
 }

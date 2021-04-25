@@ -11,6 +11,7 @@ function Upload() {
     const [getMessage, setGetMessage] = useState({});
     const [loading, setLoading] = useState(false);
     const history = useHistory();
+    const [uploadBoxClass,setUploadBoxClass] = useState("uploadSquare");
 
     const handleChange = e => {
         console.log(e.target.files[0].name)
@@ -37,32 +38,35 @@ function Upload() {
             url: 'http://localhost:5000/cat',
             data: formData,
             headers: {'Content-Type': 'multipart/form-data'}
-            })
+        })
             .then(function (response) {
-                console.log('res',response.data)
+                console.log('res', response.data)
                 r = response.data.predictClass;
             })
             .catch(function (response) {
                 console.log(response)
-        });
+            });
         history.push({
-        	pathname: "/result",
-        	state: { img: image.raw, rep: r },
-            // state: { img: image.raw, rep: "Manx" }, // Test
+            pathname: "/result",
+            state: { img: image.raw, rep: r },
+            // state: {img: image.raw, rep: "Snowshoe"}, // Test
         });
     };
 
     const dragOver = (e) => {
         e.preventDefault();
+        setUploadBoxClass("uploadSquareOnDrag");
     }
     const dragEnter = (e) => {
         e.preventDefault();
     }
     const dragLeave = (e) => {
         e.preventDefault();
+        setUploadBoxClass("uploadSquare");
     }
     const fileDrop = (e) => {
         e.preventDefault();
+        setUploadBoxClass("uploadSquare");
         const file = e.dataTransfer.files[0];
         const validTypes = ['image/jpeg', 'image/png']
         if (validTypes.indexOf(file.type) !== -1) {
@@ -76,14 +80,13 @@ function Upload() {
     }
 
     return (
-        <div className={"UploadArea"}
-             onDragOver={dragOver}
-             onDragEnter={dragEnter}
-             onDragLeave={dragLeave}
-             onDrop={fileDrop}
-        >
+        <div className={"UploadArea"}>
             <span className="body-app">Upload Your Cat Image Here</span>
-            <div className="uploadSquare" action="" method="post">
+            <div className={uploadBoxClass} action="" method="post"
+                 onDragOver={dragOver}
+                 onDragEnter={dragEnter}
+                 onDragLeave={dragLeave}
+                 onDrop={fileDrop}>
                 {
                     image.preview ? (
                         <img alt={"preview image"} src={image.preview} className="uploadSquare2"/>
@@ -98,21 +101,21 @@ function Upload() {
                             }}>CANCEL
                             </div>
                             {
-                                <div className="ProcessButton" onClick={loading?null:(handleUpload)}>
-                                    {loading?(
-                                    <ClipLoader color={"#ffffff"} loading={loading} size={"18px"}/>
-                                    ):(
-                                    "PROCESS"
+                                <div className="ProcessButton" onClick={loading ? null : (handleUpload)}>
+                                    {loading ? (
+                                        <ClipLoader color={"#ffffff"} loading={loading} size={"18px"}/>
+                                    ) : (
+                                        "PROCESS"
                                     )}
                                 </div>
                             }
                         </div>
                     ) : (
                         <div className={"buttonLabel"}>
-                            <input id="put" type="file" className="input_" accept="image/jpeg,png"
+                            <input id="put" type="file" className="input_" accept="image/jpeg,image/png"
                                    onChange={handleChange}/>
                             <label htmlFor="put" style={{cursor: "pointer"}}>
-                                <div className={"Button"}>CHOOSE FILE</div>
+                                <div className={"Button"}>CHOOSE IMAGE</div>
                             </label>
                         </div>
                     )

@@ -1,0 +1,7 @@
+const DidYouKnow = {
+    "Ragdoll": "The Ragdoll cat is probably most famous for their calm disposition compared to most cats. However, Ragdolls have a more dependent personality than other cats do. Usually, Ragdolls will welcome visitors at the door to a large extent like a dog.",
+    "Siamese": "The Siamese is one of the oldest recognized breeds of Oriental cat, originating from Thailand (formerly known as Siam). Now, I know the lure of big blue eyes might be enough to sucker you into a 15-20 year sentence, but it's important that you're happy so your bundle of kitty will be. Trust me, the last thing you want is an angry Siamese! If you're someone though who has thought about getting a dog but can't because you don't have time to walk them or your apartment/house doesn't allow them, a Siamese might be a great choice for you since they are very extroverted and some even love to play fetch!",
+    "Snowshoe": "The Snowshoe cat is a very kind and intelligent creature with a playful personality. She'll do what she can to get your attention, including jumping on your lap when you're trying to work or observing your every move from a high perch. If you have a snowshoe, you should consider purchasing a cat condo for your furry friend because she loves to be up high."
+};
+
+export default DidYouKnow;
