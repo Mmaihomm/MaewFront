@@ -14,20 +14,20 @@ function Result() {
         history.push("/");
     };
     useEffect(() => {
-        setOut(location.state.rep);
+        const resultStr = location.state.rep;
+        setOut(resultStr);
 		setImage({ preview: URL.createObjectURL(location.state.img) });
-
-        if (output === "Manx") {
+        if (resultStr === "Manx") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
             });
-        } else if (output === "Ragdoll") {
+        } else if (resultStr === "Ragdoll") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",
             });
-        } else if (output === "Siamese") {
+        } else if (resultStr === "Siamese") {
             setKnow({
                 preview:
                     "As one of the oldest cat breeds, Persian cats can be traced all the way back to the 1600s. While there are question marks about where they came from, they're believed to have originated in Mesopotamia, later called Persia (hence the name), which is now modern day Iran.",

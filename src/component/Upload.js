@@ -48,6 +48,7 @@ function Upload() {
         history.push({
         	pathname: "/result",
         	state: { img: image.raw, rep: r },
+            // state: { img: image.raw, rep: "Manx" }, // Test
         });
     };
 
