@@ -35,7 +35,7 @@ function Upload() {
         setLoading(true);
         await axios({
             method: 'POST',
-            url: 'http://localhost:5000/cat',
+            url: ' https://767cb82585d3.ngrok.io/cat',
             data: formData,
             headers: {'Content-Type': 'multipart/form-data'}
         })
