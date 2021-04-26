@@ -11,7 +11,8 @@ function Upload() {
     const [getMessage, setGetMessage] = useState({});
     const [loading, setLoading] = useState(false);
     const history = useHistory();
-    const [uploadBoxClass,setUploadBoxClass] = useState("uploadSquare");
+    const [uploadBoxClass, setUploadBoxClass] = useState("uploadSquare");
+    const backendURL = "https://767cb82585d3.ngrok.io";
 
     const handleChange = e => {
         console.log(e.target.files[0].name)
@@ -35,22 +36,26 @@ function Upload() {
         setLoading(true);
         await axios({
             method: 'POST',
-            url: 'http://localhost:5000/cat',
+            url: backendURL + '/cat',
             data: formData,
             headers: {'Content-Type': 'multipart/form-data'}
         })
             .then(function (response) {
-                console.log('res', response.data)
+                // console.log('res', response.data)
                 r = response.data.predictClass;
             })
+            .then(() => {
+                history.push({
+                    pathname: "/result",
+                    state: {img: image.raw, rep: r},
+                    // state: {img: image.raw, rep: "Snowshoe"}, // Test
+                });
+            })
             .catch(function (response) {
-                console.log(response)
+                // console.log(response);
+                setLoading(false);
+                alert("An error occurred. Please try again.");
             });
-        history.push({
-            pathname: "/result",
-            state: { img: image.raw, rep: r },
-            // state: {img: image.raw, rep: "Snowshoe"}, // Test
-        });
     };
 
     const dragOver = (e) => {
@@ -95,11 +100,15 @@ function Upload() {
                 {process ?
                     (
                         <div className={"ActionButtonGroup"}>
-                            <div className="CancelButton" onClick={() => {
-                                setProcess(false);
-                                image.preview = null;
-                            }}>CANCEL
-                            </div>
+                            {
+                                loading ? null : (
+                                    <div className="CancelButton" onClick={() => {
+                                        setProcess(false);
+                                        image.preview = null;
+                                    }}>CANCEL
+                                    </div>
+                                )
+                            }
                             {
                                 <div className="ProcessButton" onClick={loading ? null : (handleUpload)}>
                                     {loading ? (

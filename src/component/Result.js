@@ -52,7 +52,7 @@ function Result() {
                         >
                             Your cat is
                             <br/>
-                            <span style={{fontSize: "7vw", fontWeight: "500"}}>
+                            <span className={"resultOutput"}>
 								{output}
 							</span>
                         </p>
@@ -65,9 +65,9 @@ function Result() {
                     </div>
                 </div>
             </div>
-            <span className="backHome" onClick={handleBackHome}>
+            <div className="backHome" onClick={handleBackHome}>
 						BACK TO HOME
-            </span>
+            </div>
         </div>
     );
 }

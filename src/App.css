@@ -68,7 +68,7 @@ body {
 }
 
 .uploadSquareOnDrag{
-    background-color: rgb(185, 255, 146);
+    background-color: #86dcdc;
 }
 
 .uploadSquare2 {
@@ -131,6 +131,7 @@ body {
     display: flex;
     flex-direction: row;
 }
+
 .Logo .LogoPic{
     height: 2em;
     margin-right: 20px;
@@ -300,4 +301,31 @@ body {
 
 .backHome {
     /* margin-top: 50%; */
+}
+
+.resultOutput{
+    font-size: 7vw;
+    font-weight: 500;
+}
+
+
+@media (max-width: 767px) {
+    .LogoText{
+        display: none;
+        width: 100vw
+    }
+    .resultArea{
+        flex-direction: column;
+        width: auto;
+    }
+    .resultGroup{
+        height: auto;
+    }
+    .resultOutput{
+        font-size: 90px;
+    }
+    .boxImg{
+        width: 100%;
+        height: 50vh;
+    }
 }
