@@ -12,7 +12,7 @@ function Upload() {
     const [loading, setLoading] = useState(false);
     const history = useHistory();
     const [uploadBoxClass, setUploadBoxClass] = useState("uploadSquare");
-    const backendURL = "https://767cb82585d3.ngrok.io";
+    const backendURL = "https://54f14600c367.ngrok.io";
 
     const handleChange = e => {
         console.log(e.target.files[0].name)
