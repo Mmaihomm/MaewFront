@@ -60,7 +60,6 @@ body {
     align-items: center;
     justify-content: space-around;
     max-width: 700px;
-    min-width: 300px;
     min-height: 300px;
     width: 80vw;
     height: 50vh;
@@ -322,7 +321,7 @@ body {
         height: auto;
     }
     .resultOutput{
-        font-size: 90px;
+        font-size: 13vw;
     }
     .boxImg{
         width: 100%;
